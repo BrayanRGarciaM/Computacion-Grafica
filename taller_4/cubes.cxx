@@ -122,6 +122,49 @@ void DrawUnitaryPyramid( )
     { 0, 1, 0 },
     { 0.5, 0, 0 },
     { 0, 0, 1 },
+    {-0.5, 0, 0 }
+  };
+
+  unsigned int faces[ 3 ][ 3 ] =
+  {
+    { 0, 1, 2 },
+    { 0, 2, 3 },
+    { 0, 1, 3 }
+  };
+
+  for( unsigned int i = 0; i < 3; ++i )
+  {
+    glBegin( GL_POLYGON );
+    {
+      for( unsigned int j = 0; j < 3; ++j )
+      {
+        glColor3fv( colors[ faces[ i ][ j ] ] );
+        glVertex3fv( points[ faces[ i ][ j ] ] );
+      } // end for
+    }
+    glEnd( );
+  } // end for
+}
+// -------------------------------------------------------------------------
+void DrawUnitarySquarePyramid( )
+{
+  float colors[ 8 ][ 3 ] =
+  {
+    { 1, 0, 0 },
+    { 0, 1, 0 },
+    { 0, 0, 1 },
+    { 0, 1, 1 },
+    { 1, 0, 1 },
+    { 1, 1, 0 },
+    { 0.5, 0.5, 0.5 },
+    { 1, 1, 1 }
+  };
+
+  float points[ 5 ][ 3 ] =
+  {
+    { 0, 1, 0 },
+    { 0.5, 0, 0 },
+    { 0, 0, 1 },
     {-0.5, 0, 0 },
     { 0, 0,-1 }
   };
@@ -190,7 +233,7 @@ void DisplayCbk( )
   glPopMatrix( );
   glPushMatrix( );
   glTranslatef(1.8,1.5,-5);
-  //glRotatef(280,1,0,0);
+  glRotatef(90,1,0,0);
   glScalef( 2, 1.5, 1 );
   DrawUnitaryPyramid( );
 
