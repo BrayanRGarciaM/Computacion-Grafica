@@ -26,6 +26,7 @@ int giroLuna1 = 0;
 int giroLuna2 = 0;
 int giroLuna3 = 0;
 
+int giroCamara=0;
 int refreshMills = 15;
 
 // -------------------------------------------------------------------------
@@ -376,9 +377,11 @@ void DisplayCbk( )
 
   // Camara
   glLoadIdentity( );
- gluLookAt( 40, 40, 200, 30, 30, -29, 0, 1, 0 );
-  //gluLookAt(30, 30, -0, 30, 30,-30, 0, 1, 0 );
-  //gluLookAt(30, 200, -30,30,30,-29,0,1,0);
+  //gluLookAt(40,40,200,18,0,0,0,1,0);
+ //gluLookAt( 40, 0, 40, 18, 0, 0, 0, 1, 0 );
+  gluLookAt(200, 100, -30, 30,30,-30, 0, 1, 0 );
+  //gluLookAt(10, 0, -100, 30, 30, -29, 0, 1, 0);
+  //gluLookAt(200,30,30,30,0,-30,0,1,0);
  glPopMatrix();
   // Sol
   glPushMatrix( );
@@ -394,8 +397,9 @@ void DisplayCbk( )
 //trayectoria Planeta 1
 glPopMatrix( );
 glPushMatrix( );
-glRotatef(180,1,1,1);
-glScalef(45,45,45);
+glRotatef(135,1,0,0);
+//glRotatef(giroPlaneta1,1,0,0);
+glScalef(52,52,52);
 DrawCircle(GL_LINE_LOOP,100);
   //Planeta 1
   glPopMatrix();
@@ -501,6 +505,13 @@ DrawCircle(GL_LINE_LOOP,100);
   glScalef(4,4,4);
   DrawUnitaryPyramidLines();
 
+  //trayectoria Planeta 4
+  glPopMatrix( );
+  glPushMatrix( );
+  glRotatef(90,1,0,0);
+  //glRotatef(giroPlaneta1,1,0,0);
+  glScalef(18,18,18);
+  DrawCircle(GL_LINE_LOOP,100);
   //Planeta 4
   glPopMatrix();
   glPushMatrix();
